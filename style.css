@@ -1,0 +1,132 @@
+body {
+    background-color: rgb(236, 236, 236);
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Azeret Mono', monospace;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+}
+
+.dark-mode {
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+.dark-mode-header {
+    background-color: rgb(31, 31, 31);
+    /* border-color: white; */
+}
+
+
+.dark-mode-switch {
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 7px #999;
+    height: 30px;
+    margin: 5px;
+    vertical-align: middle;
+    font-family: 'Azeret Mono', monospace;
+}
+
+header {
+    display: flex;
+    padding: 5px 0;
+    margin-bottom: 20px;
+    justify-content: center;
+    background-color: rgb(218, 218, 218)
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+h3 {
+    /* border-bottom: black 1px solid; */
+    font-size: 1.5rem;
+    padding: 0 20px;
+    margin: 10px 20px;
+}
+
+footer {
+    bottom: 20px;
+    color: gray;
+    position: fixed;
+    width: 100%;
+}
+
+.select,
+.button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 9px #999;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    vertical-align: middle;
+    font-weight: bold;
+    color: black;
+}
+
+
+.app-display {
+    font-size: 8rem;
+    margin: 0 auto;
+    width: 75%;
+}
+
+/* Clock CSS */
+
+#clock-date {
+    font-size: 35px;
+}
+
+/* Timer Change Button */
+
+.timer-change-button {
+    height: 50px;
+    width: 100px;
+}
+
+.timer-change-button:active,
+.button:active, .dark-mode-switch:active {
+    background-color: rgb(197, 197, 197);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Metronome CSS */
+
+/* #metronome-outer {
+    width: 500px;
+    height: 100px;
+    background-color: aqua;
+    margin: auto;
+    border-radius: 50px;
+}
+
+#metronome-inner {
+    width: 90px;
+    height: 90px;
+    background-color: red;
+    margin: auto;
+    float: left;
+    border-radius: 50px;
+} */
