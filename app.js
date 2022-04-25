@@ -158,6 +158,7 @@ function stopwatchStart() {
         return
     }
     stopwatchInterval = setInterval(stopwatchTimerFunction, 1000);
+
 }
 function stopwatchStop() {
     clearInterval(stopwatchInterval)
@@ -175,6 +176,7 @@ document.getElementById("start-stopwatch").addEventListener("click", function(){
     if (stopwatchInterval) {
         return
     }
+    
     stopwatchInterval = setInterval(stopwatchTimerFunction, 1000);
 });
 document.getElementById("stop-stopwatch").addEventListener("click", function(){
@@ -248,7 +250,12 @@ document.getElementById("start-timer").addEventListener("click", function(){
     if (timerInterval) {
         return
     }
-    timerInterval = setInterval(timerCountdown,1000);
+    if (timerSeconds === 0) {
+        return
+    } else {
+        timerInterval = setInterval(timerCountdown,1000);
+
+    }
 })
 
 document.getElementById("stop-timer").addEventListener("click", function(){
@@ -268,6 +275,9 @@ document.getElementById("reset-timer").addEventListener("click", function(){
 //Timer Increase Controls
 const timerUnitControls = ["hrs", "min", "sec"];
 
+if (timerSeconds <= -1){
+    timerSeconds = 0;
+}
 for (let unitOfTime of timerUnitControls) {
     document.querySelector(`.${unitOfTime}-increase`).addEventListener("click", function () {
         if (`${unitOfTime}` === "hrs") {
@@ -292,6 +302,9 @@ for (let unitOfTime2 of timerUnitControls) {
         if (timerSeconds > 0 ) {
             if (`${unitOfTime2}` === "hrs") {
                 timerSeconds = timerSeconds - 3600;
+                if (timerSeconds <= -1){
+                    timerSeconds = 0;
+                }
                 timerDisplayUpdate();
             }
             if (`${unitOfTime2}` === "min") {
@@ -308,4 +321,11 @@ for (let unitOfTime2 of timerUnitControls) {
     });
 }
 
+
 //Metronome Script
+
+//How to convert BPM to Milliseconds
+// 60,000 / BPM = MS
+
+let beatsPerMin = 60;
+let milSecondsMetronome = 60000 / beatsPerMin
