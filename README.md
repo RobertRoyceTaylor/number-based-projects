@@ -28,3 +28,4 @@ Uploaded the metronome along with a few tweaks to the style sheet
 To do:
 - Add a sound or animation to the Countdown app
 - Fix the Metronome app from moving the increase buttons when the BPM > 100
+- Scale properly to mobile devices w/out bootstrap
