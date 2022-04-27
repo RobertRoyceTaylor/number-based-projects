@@ -11,6 +11,7 @@ for (let app of apps) { //Selcts the elements in the array
             } else {
                 element.classList.add("hidden");
                 document.querySelector("title").innerText = `${app} by Robert`
+
             }
 
         }
@@ -19,7 +20,7 @@ for (let app of apps) { //Selcts the elements in the array
 
 //Dark Mode
 
-document.querySelector(".dark-mode-switch").addEventListener("click", function(){
+document.querySelector(".dark-mode-switch").addEventListener("click", function () {
     document.querySelector(".body").classList.toggle("dark-mode")
     document.querySelector(".header").classList.toggle("dark-mode-header")
 })
@@ -33,28 +34,32 @@ function clock() {
     let dateHours = date.getHours();
     let dateMin = date.getMinutes();
     let dateSec = date.getSeconds();
-    let dateWeekday = date.toLocaleString("default", {weekday: "long"});
-    let dateMonth =  date.toLocaleString("default", {month: "long"});
+    let dateWeekday = date.toLocaleString("default", { weekday: "long" });
+    let dateMonth = date.toLocaleString("default", { month: "long" });
     let dateDate = date.getDate();
     let dateYear = date.getFullYear();
     let amPm = " AM"
-    if(dateHours > 12) {
-      dateHours = dateHours - 12;
-      amPm = " PM"
+    if (dateHours > 12) {
+        dateHours = dateHours - 12;
+        amPm = " PM"
     }
-    if(dateMin < 10) {
+    if (dateHours === 0) {
+        dateHours = dateHours + 12;
+        amPm = " AM"
+    }
+    if (dateMin < 10) {
         dateMin = "0" + dateMin;
     }
-    if(dateSec < 10) {
+    if (dateSec < 10) {
         dateSec = "0" + dateSec;
     }
     document.getElementById("clock-time").innerText = dateHours + ":" + dateMin + ":" + dateSec + amPm;
     //date.toLocaleTimeString(); exists as well!
     document.getElementById("clock-date").innerText = dateWeekday + " " + dateMonth + " " + dateDate + ", " + dateYear
-    
-  }
-  
-function updateClock(){
+
+}
+
+function updateClock() {
     clock();
     clearInterval(clockInterval);
     setInterval(clock, 1000);
@@ -65,15 +70,14 @@ updateClock();
 
 //Counter JavaScript
 
-//To Do: Update and clean up code using functions()
-let displayCounter = document.querySelector("#num-display-counter")
-let negHundredCounter = document.querySelector("#neg-hundred-counter")
-let negTenCounter = document.querySelector("#neg-ten-counter")
-let negOneCounter = document.querySelector("#neg-one-counter")
-let resetCounter = document.querySelector("#reset-counter")
-let posOneCounter = document.querySelector("#pos-one-counter")
-let posTenCounter = document.querySelector("#pos-ten-counter")
-let posHundredCounter = document.querySelector("#pos-hundred-counter")
+const displayCounter = document.querySelector("#num-display-counter")
+const negHundredCounter = document.querySelector("#neg-hundred-counter")
+const negTenCounter = document.querySelector("#neg-ten-counter")
+const negOneCounter = document.querySelector("#neg-one-counter")
+const resetCounter = document.querySelector("#reset-counter")
+const posOneCounter = document.querySelector("#pos-one-counter")
+const posTenCounter = document.querySelector("#pos-ten-counter")
+const posHundredCounter = document.querySelector("#pos-hundred-counter")
 
 let numDisplayCounter = 0; //Default value for the counter
 
@@ -120,9 +124,9 @@ posHundredCounter.addEventListener("click", function () {
 
 //Stopwatch Script
 
-const stopwatchHrsDisplay = document.getElementById("stopwatch-hour") 
-const stopwatchMinDisplay = document.getElementById("stopwatch-minute") 
-const stopwatchSecDisplay = document.getElementById("stopwatch-second") 
+const stopwatchHrsDisplay = document.getElementById("stopwatch-hour")
+const stopwatchMinDisplay = document.getElementById("stopwatch-minute")
+const stopwatchSecDisplay = document.getElementById("stopwatch-second")
 
 let stopwatchSeconds = 0;
 let stopwatchInterval = null;
@@ -149,9 +153,12 @@ function stopwatchTimerFunction() {
     stopwatchSecDisplay.innerText = `${stopwatch_sec}`;
 }
 
-// function stopwatchDisplayUpdate() {
-//     stopwatchTimerFunction();
-// }
+
+//StopWatch Controls
+
+const stopwatchStartButton = document.getElementById("start-stopwatch");
+const stopwatchStopButton = document.getElementById("stop-stopwatch");
+const stopwatchResetButton = document.getElementById("reset-stopwatch");
 
 function stopwatchStart() {
     if (stopwatchInterval) {
@@ -172,24 +179,9 @@ function stopwatchReset() {
     stopwatchSecDisplay.innerText = "00";
 }
 
-document.getElementById("start-stopwatch").addEventListener("click", function(){
-    if (stopwatchInterval) {
-        return
-    }
-    
-    stopwatchInterval = setInterval(stopwatchTimerFunction, 1000);
-});
-document.getElementById("stop-stopwatch").addEventListener("click", function(){
-    clearInterval(stopwatchInterval)
-    stopwatchInterval = null;
-});
-document.getElementById("reset-stopwatch").addEventListener("click", function(){
-    stopwatchStop()
-    stopwatchSeconds = 0;
-    stopwatchHrsDisplay.innerText = "00";
-    stopwatchMinDisplay.innerText = "00";
-    stopwatchSecDisplay.innerText = "00";
-});
+stopwatchStartButton.addEventListener("click", stopwatchStart);
+stopwatchStopButton.addEventListener("click", stopwatchStop);
+stopwatchResetButton.addEventListener("click", stopwatchReset);
 
 //Countdown Timer Script
 
@@ -197,11 +189,9 @@ document.getElementById("reset-stopwatch").addEventListener("click", function(){
 const timerHrsDisplay = document.getElementById("timer-hrs"); //Selects the Hours
 const timerMinDisplay = document.getElementById("timer-min"); //Selects the Minutes
 const timerSecDisplay = document.getElementById("timer-sec"); //Selects the Seconds
+
 let timerSeconds = 0;
 let timerInterval = null;
-// let timer_hrs = Math.floor(timerSeconds / 3600);
-// let timer_min = Math.floor((timerSeconds - timer_hrs * 3600) / 60);
-// let timer_sec = timerSeconds % 60;
 
 
 function timerLengthFunction() {
@@ -231,7 +221,6 @@ function timerDisplayUpdate() {
 }
 
 // Timer Control Functions
-
 function timerCountdown() {
     timerSeconds--
     timerDisplayUpdate();
@@ -244,26 +233,30 @@ function timerCountdown() {
 
 
 // Timer Control Buttons
+
+const countdownTimerStart = document.getElementById("start-timer");
+const countdownTimerStop = document.getElementById("stop-timer");
+const countdownTimerReset = document.getElementById("reset-timer");
 //Make something when it hits 0
 
-document.getElementById("start-timer").addEventListener("click", function(){
+countdownTimerStart.addEventListener("click", function () {
     if (timerInterval) {
         return
     }
     if (timerSeconds === 0) {
         return
     } else {
-        timerInterval = setInterval(timerCountdown,1000);
+        timerInterval = setInterval(timerCountdown, 1000);
 
     }
 })
 
-document.getElementById("stop-timer").addEventListener("click", function(){
+countdownTimerStop.addEventListener("click", function () {
     clearInterval(timerInterval);
     timerInterval = null;
 })
 
-document.getElementById("reset-timer").addEventListener("click", function(){
+countdownTimerReset.addEventListener("click", function () {
     clearInterval(timerInterval);
     timerInterval = null;
     timerSeconds = 0;
@@ -272,10 +265,10 @@ document.getElementById("reset-timer").addEventListener("click", function(){
 
 
 
-//Timer Increase Controls
+//Countdown Timer Increase Controls
 const timerUnitControls = ["hrs", "min", "sec"];
 
-if (timerSeconds <= -1){
+if (timerSeconds <= -1) {
     timerSeconds = 0;
 }
 for (let unitOfTime of timerUnitControls) {
@@ -296,13 +289,13 @@ for (let unitOfTime of timerUnitControls) {
     });
 }
 
-//Timer Decrease Controls
+//Countdown Timer Decrease Controls
 for (let unitOfTime2 of timerUnitControls) {
     document.querySelector(`.${unitOfTime2}-decrease`).addEventListener("click", function () {
-        if (timerSeconds > 0 ) {
+        if (timerSeconds > 0) {
             if (`${unitOfTime2}` === "hrs") {
                 timerSeconds = timerSeconds - 3600;
-                if (timerSeconds <= -1){
+                if (timerSeconds <= -1) {
                     timerSeconds = 0;
                 }
                 timerDisplayUpdate();
@@ -316,7 +309,7 @@ for (let unitOfTime2 of timerUnitControls) {
                 timerDisplayUpdate();
             }
         }
-        
+
 
     });
 }
@@ -324,8 +317,82 @@ for (let unitOfTime2 of timerUnitControls) {
 
 //Metronome Script
 
-//How to convert BPM to Milliseconds
-// 60,000 / BPM = MS
+const beatsPerMinDisplay = document.getElementById("metronome-bpm-display");
+const metronomeClickHi = new Audio("audio/Perc_MetronomeQuartz_hi.wav");
+const metronomeClickLo = new Audio("audio/Perc_MetronomeQuartz_lo.wav");
+const metronomeDot = document.getElementById("metronome-inner");
 
 let beatsPerMin = 60;
-let milSecondsMetronome = 60000 / beatsPerMin
+let i = 0;
+
+//Metronome function
+function metronome() {
+    i = 0;
+    let milSecondsMetronome = 60000 / beatsPerMin
+    setTimeout(function () {
+        metronomeClickHi.play();
+        metronomeDot.classList.toggle("float-right");
+        i++;
+        if (i < Infinity) {
+            metronome();
+        }
+    }, milSecondsMetronome)
+}
+
+
+//Metronome Controls
+const metronomeStart = document.getElementById("metronome-start");
+const metronomeStop = document.getElementById("metronome-stop");
+const metronomeMinusTen = document.getElementById("metronome-minus-ten");
+const metronomeMinusOne = document.getElementById("metronome-minus-one");
+const metronomePlusOne = document.getElementById("metronome-plus-one");
+const metronomePlusTen = document.getElementById("metronome-plus-ten");
+const metronomeReset = document.getElementById("metronome-reset");
+
+function updateMetronomeDisplay() {
+    beatsPerMinDisplay.innerText = beatsPerMin;
+}
+
+//Metronome Buttons
+metronomeStart.addEventListener("click", metronome)
+
+metronomeStop.addEventListener("click", function () {
+    i = Infinity;
+})
+
+metronomeMinusTen.addEventListener("click", function () {
+    beatsPerMin = beatsPerMin - 10;
+    if (beatsPerMin <= 30) {
+        beatsPerMin = 30;
+    }
+    updateMetronomeDisplay();
+})
+metronomeMinusOne.addEventListener("click", function () {
+    beatsPerMin = beatsPerMin - 1;
+    if (beatsPerMin <= 30) {
+        beatsPerMin = 30;
+    }
+    updateMetronomeDisplay();
+})
+metronomePlusOne.addEventListener("click", function () {
+    beatsPerMin = beatsPerMin + 1;
+    if (beatsPerMin >= 220) {
+        beatsPerMin = 220;
+    }
+    updateMetronomeDisplay();
+})
+metronomePlusTen.addEventListener("click", function () {
+    beatsPerMin = beatsPerMin + 10;
+    if (beatsPerMin >= 220) {
+        beatsPerMin = 220;
+    }
+    updateMetronomeDisplay();
+})
+metronomeReset.addEventListener("click", function () {
+    beatsPerMin = 60;
+    updateMetronomeDisplay();
+})
+
+
+
+

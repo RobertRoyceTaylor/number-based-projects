@@ -28,8 +28,8 @@
         <div class="select metronome-switch">
             <h3>Metronome</h3>
         </div>
-        <div class="dark-mode-container">
-            <button class="dark-mode-switch">Dark Mode</button>
+        <div class="select dark-mode-container">
+            <button class="select dark-mode-switch">Dark Mode</button>
         </div>
     </header>
 <!-- Clock App (Complete)-->
@@ -134,9 +134,28 @@
 <!-- Metronome App (Incomplete) -->
     <div class="metronome hidden">
         <h1>Metronome</h1>
-        <div>Coming Soon...</div>
+        <!-- <div>Coming Soon...</div> -->
         <div id="metronome-outer">
             <div id="metronome-inner"></div>
+        </div>
+        <table class="app-display">
+            <tr>
+                <td><button class="button" id="metronome-minus-ten"> << </button></td>
+                <td><button class="button" id="metronome-minus-one"> < </button></td>
+                <td  id="metronome-bpm-display">60</td>
+                <td><button class="button" id="metronome-plus-one"> > </button></td>
+                <td><button class="button" id="metronome-plus-ten"> >> </button></td>
+            </tr>
+        </table>
+        <div>
+            <p>
+                BPM
+            </p>
+        </div>
+        <div class="button-group">
+            <div class="button" id="metronome-start"><p class="button-value">Start</p></div>
+            <div class="button" id="metronome-stop"><p class="button-value">Stop</p></div>
+            <div class="button" id="metronome-reset"><p class="button-value">Reset</p></div>
         </div>
     </div>
 

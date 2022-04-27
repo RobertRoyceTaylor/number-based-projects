@@ -14,6 +14,7 @@ body {
     background-color: rgb(41, 41, 41);
     color: white;
 }
+
 .dark-mode-header {
     background-color: rgb(31, 31, 31);
     /* border-color: white; */
@@ -83,13 +84,14 @@ footer {
     vertical-align: middle;
     font-weight: bold;
     color: black;
+
 }
 
 
 .app-display {
     font-size: 8rem;
     margin: 0 auto;
-    width: 75%;
+    /* width: 75%; */
 }
 
 /* Clock CSS */
@@ -106,7 +108,8 @@ footer {
 }
 
 .timer-change-button:active,
-.button:active, .dark-mode-switch:active {
+.button:active,
+.dark-mode-switch:active {
     background-color: rgb(197, 197, 197);
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -114,19 +117,30 @@ footer {
 
 /* Metronome CSS */
 
-/* #metronome-outer {
+#metronome-outer {
     width: 500px;
     height: 100px;
-    background-color: aqua;
+    background-color: rgb(197, 197, 197);
     margin: auto;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 #metronome-inner {
     width: 90px;
     height: 90px;
-    background-color: red;
-    margin: auto;
-    float: left;
-    border-radius: 50px;
-} */
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 4px #999;
+    border-radius: 10px;
+    position: relative;
+    top: 3px;
+    margin: auto 4px;
+}
+
+.float-right {
+    float: right;
+}
+
+#metronome-bpm-display {
+    /* width: 25%; */
+    padding: 0 200px;
+}
