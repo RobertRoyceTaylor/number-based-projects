@@ -322,18 +322,21 @@ const metronomeClickHi = new Audio("audio/Perc_MetronomeQuartz_hi.wav");
 const metronomeClickLo = new Audio("audio/Perc_MetronomeQuartz_lo.wav");
 const metronomeDot = document.getElementById("metronome-inner");
 
+let metronomeInterval = null;
+let metronomeOn = false;
 let beatsPerMin = 60;
-let i = 0;
+
 
 //Metronome function
 function metronome() {
-    i = 0;
+
     let milSecondsMetronome = 60000 / beatsPerMin
-    setTimeout(function () {
+    metronomeInterval = setInterval(function () {
         metronomeClickHi.play();
         metronomeDot.classList.toggle("float-right");
-        i++;
-        if (i < Infinity) {
+        metronomeOn = true;
+        if (metronomeOn === true) {
+            clearInterval(metronomeInterval);
             metronome();
         }
     }, milSecondsMetronome)
@@ -357,7 +360,8 @@ function updateMetronomeDisplay() {
 metronomeStart.addEventListener("click", metronome)
 
 metronomeStop.addEventListener("click", function () {
-    i = Infinity;
+    metronomeOn = false;
+    clearInterval(metronomeInterval);
 })
 
 metronomeMinusTen.addEventListener("click", function () {
