@@ -10,7 +10,7 @@ Working Apps
 - Stopwatch
 - Countdown
 
-None Working Apps
+Non Working Apps
 - Metronome
 
 To do:
