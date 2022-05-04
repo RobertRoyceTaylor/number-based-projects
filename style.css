@@ -16,8 +16,7 @@ body {
 }
 
 .dark-mode-header {
-    background-color: rgb(31, 31, 31);
-    /* border-color: white; */
+    background-color: rgb(31, 31, 31) !important;
 }
 
 
@@ -27,26 +26,64 @@ body {
     background-color: rgb(247, 247, 247);
     box-shadow: 0 7px #999;
     height: 30px;
-    margin: 5px;
-    vertical-align: middle;
+    width: 50px;
+    margin: 15px;
     font-family: 'Azeret Mono', monospace;
+    font-size: 1rem;
+    font-weight: 900;
 }
 
-header {
-    display: flex;
-    padding: 5px 0;
-    margin-bottom: 20px;
-    justify-content: center;
+/* Header */
+
+.header {
+    overflow: hidden;
+    padding: 20px 0;
+    margin-bottom: 50px;
     background-color: rgb(218, 218, 218)
 }
 
-h1 {
-    font-size: 2rem;
-    margin: 0;
+.header h3 {
+    margin-top: 20px;
+    float: left;
 }
 
+.header-right {
+    float: right;
+}
+
+.header-mobile {
+    float: right;
+    display: none;
+}
+
+.dropdown-btn {
+    float: right;
+    margin: 15px 30px 20px;
+    border:none;
+    font-size: 1.3rem;
+    /* background-color: #a9a9a9; */
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+
+
+.dropdown-menu {
+    display: none;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 25px;
+    max-width: 100px;
+}
+
+.header-mobile:hover .dropdown-menu {
+    display: block;
+}
+
+
+
 h3 {
-    /* border-bottom: black 1px solid; */
     font-size: 1.5rem;
     padding: 0 20px;
     margin: 10px 20px;
@@ -58,6 +95,7 @@ footer {
     position: fixed;
     width: 100%;
 }
+
 
 .select,
 .button {
@@ -84,20 +122,18 @@ footer {
     vertical-align: middle;
     font-weight: bold;
     color: black;
-
 }
 
 
 .app-display {
-    font-size: 8rem;
+    font-size: 8vw;
     margin: 0 auto;
-    /* width: 75%; */
 }
 
 /* Clock CSS */
 
 #clock-date {
-    font-size: 35px;
+    font-size: 4vw;
 }
 
 /* Timer Change Button */
@@ -136,11 +172,22 @@ footer {
     margin: auto 4px;
 }
 
-.float-right {
-    float: right;
-}
-
 #metronome-bpm-display {
     /* width: 25%; */
-    padding: 0 200px;
+    padding: 10px
+}
+
+@media screen and (max-width: 1450px) {
+    .select {
+        display: none;
+    }
+
+    .header-mobile {
+        display: block;
+    }
+
+    .metronome {
+        scale: 35%;
+        margin: auto;
+    }
 }

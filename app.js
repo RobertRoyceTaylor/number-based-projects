@@ -1,4 +1,4 @@
-// App switcher
+// App switcher for Desktop
 const apps = ["clock", "counter", "stopwatch", "timer", "metronome"]; //List of all apps
 
 for (let app of apps) { //Selcts the elements in the array
@@ -16,6 +16,23 @@ for (let app of apps) { //Selcts the elements in the array
 
         }
     });
+}
+
+//App Switcher for Mobile
+
+for (let appMobile of apps ) {
+    document.querySelector(`.${appMobile}-switch-mobile`).addEventListener("click", function (){
+        for (let appMobile2 of apps) {
+            const elementMobile = document.querySelector(`.${appMobile2}`);
+
+            if (appMobile2 === appMobile) {
+                elementMobile.classList.remove("hidden")
+            } else {
+                elementMobile.classList.add("hidden");
+                document.querySelector("title").innerText = `${appMobile} by Robert`
+            }
+        }
+    })
 }
 
 //Dark Mode
