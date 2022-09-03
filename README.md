@@ -10,6 +10,7 @@ Number Projects is a collection of 5 web apps created using HTML, CSS, and JavaS
 * [Countdown App](#countdown-app)
 * [Metronome App](#metronome-app)
 * [Planned Features](#planned-features)
+* [Known Issues](#known-issues)
 
 ## General Information
 
@@ -60,27 +61,19 @@ The metronome ranges from 30 BPM to 220 BPM in 1 BPM intervals. The user can con
 
 ## Planned Features
 
-<Text Here>
+* Add a sound and animation to the Countdown app when countdown is complete
+* Rework the mobile version
+* Custom sounds for the metronome (kick drum, electric beep, etc)
 
+## Known Issues
 
-
-
-
-
-
-
-
-
-
-
-To do for mobile experience:
-- Fix the header scaling
-- Fix the metronome scaling
-- Fix the buttons for the applications scaling
-- Impliment a better solution for the dark mode button on mobile
-
-To do: 
-- Add a sound or animation to the Countdown app
-- Fix the Metronome app from moving the increase buttons when the BPM > 100
-- Fix the Metronome app visual not moving
-- Fix the desync with the metronome app (current version is a proof of concept)
+* Mobile version 
+  * Metronome does not work
+  * Metronome buttons
+  * Counter button scaling is off
+  * Collapsible header is margins are wrong
+  * Complete rework of mobile app needed
+* General
+  * Metronome can desync (refresh browser needed)
+  * Metronome buttons moving when BPM is greater than 100
+  * Metronome visual not moving 
