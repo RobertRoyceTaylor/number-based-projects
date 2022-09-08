@@ -10,6 +10,7 @@ body {
     -ms-user-select: none;
 }
 
+
 .dark-mode {
     background-color: rgb(41, 41, 41);
     color: white;
@@ -96,6 +97,16 @@ footer {
     width: 100%;
 }
 
+.icon{
+    height: 17px;
+    padding: 0 10px;
+    user-select: none;
+    filter: contrast(0) brightness(0);
+}
+
+.icon-dark{
+    filter: invert(100);
+}
 
 .select,
 .button {

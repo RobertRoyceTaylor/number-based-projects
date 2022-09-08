@@ -37,9 +37,12 @@ for (let appMobile of apps ) {
 
 //Dark Mode
 
+
+
 document.querySelector(".dark-mode-switch").addEventListener("click", function () {
     document.querySelector(".body").classList.toggle("dark-mode")
     document.querySelector(".header").classList.toggle("dark-mode-header")
+    document.querySelector(".link-icons").classList.toggle("icon-dark")
 })
 
 
