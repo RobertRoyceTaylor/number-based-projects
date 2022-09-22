@@ -1,4 +1,4 @@
-# Numbers Projects
+# Numbers Project
 
 Number Projects is a collection of 5 web apps created using HTML, CSS, and JavaScript to practice my skills within JavaScript.
 
